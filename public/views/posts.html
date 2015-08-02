@@ -1,0 +1,21 @@
+            <div style="font-size:2em; font-weight:bold;" class="page-header">Reddit Clone</div>
+
+			<div ng-repeat = "post in posts | orderBy: '-upvotes'" >
+				<span><a class="glyphicon glyphicon-thumbs-up glyphicon-th-large" ng-click="incrementVote(post)" ></a></span>
+				{{ post.upvotes }}
+				<a  style="font-size:2em; margin-left:5px;" href="{{post.link}}"> {{ post.title }}</a>
+        <span ng-show = "post.author"> posted by <a> {{ post.author}} </a> | </span>
+				<a href="/comments/{{post._id}}">Comments</a>
+			</div>
+
+			<div>
+				<h3>Add a New Post</h3>
+				<form  class="form-group" ng-show="isLoggedIn()" ng-submit="addPost()">
+					<input type="text" class="form-control" placeholder="Title" ng-model="title"><br/>
+					<input type="text" class="form-control" placeholder="Link" ng-model="link"><br/>
+					<button type="submit" class="btn btn-primary">Post</button>
+				</form>
+        <div ng-hide="isLoggedIn()">
+          <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</h3>
+        </div>
+			</div>

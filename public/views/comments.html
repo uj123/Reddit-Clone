@@ -1,0 +1,19 @@
+            <div style="font-size:2em; font-weight:bold;" class="page-header"><a href="{{link}}">{{title}}</a></div>
+
+			<div ng-repeat = "comment in comments | orderBy: '-upvotes'" >
+				<span><a class="glyphicon glyphicon-thumbs-up glyphicon-th-large" ng-click="incrementVote(comment)" ></a></span>
+				{{ comment.upvotes }}
+				<span  style="font-size:2em; margin-left:5px;" > {{ comment.body }}</span>
+				<span ng-show = "comment.author"> posted by <a> {{ comment.author}} </a></span>
+			</div>
+
+			<div>
+				<h3>Add a New Comment</h3>
+				<form  class="form-group" ng-show="isLoggedIn()"  ng-submit="addComment()">
+					<input type="text" class="form-control" placeholder="Body" ng-model="body"><br/>
+          <button type="submit" class="btn btn-primary">Comment</button>
+				</form>
+        <div ng-hide="isLoggedIn()">
+          <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can comment.</h3>
+        </div>
+			</div>

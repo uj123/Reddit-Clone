@@ -1,0 +1,12 @@
+  <div style="font-size:2em; font-weight:bold;" class="page-header">Reddit Clone</div>
+  <div ng-show="error" class="alert alert-danger row">
+      <span>{{ error.message }}</span>
+  </div>
+  <div>
+    <h3>Register</h3>
+    <form  class="form-group" ng-submit="register()">
+      <input type="text" class="form-control" placeholder="Username" ng-model="user.username"><br/>
+      <input type="password" class="form-control" placeholder="Password" ng-model="user.password"><br/>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>

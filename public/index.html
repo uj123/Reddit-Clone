@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- <html ng-app="curatorApp"> -->
+<html ng-app="redditClone">
+<head>
+    <title>Reddit-Clone</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+
+</head>
+
+<body ng-controller="mainCtrl">
+    <nav class="navbar navbar-default" ng-controller="NavCtrl">
+      <ul class="nav navbar-nav">
+        <li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
+        <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
+        <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
+        <li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+            <div class="row" >
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+    	    <div ng-view></div>
+            </div>
+            </div>
+    </div>
+
+
+    <!-- Custom javascripts -->
+	<script src="main.js"></script>
+  <script src="js/controllers/post-controller.js"></script>
+  <script src="js/controllers/comment-controller.js"></script>
+  <script src="js/controllers/auth-controller.js"></script>
+  <script src="js/controllers/nav-controller.js"></script>
+	<script src="js/services/post-service.js"></script>
+	<script src="js/services/comment-service.js"></script>
+  <script src="js/services/auth-service.js"></script>
+</body>
+
+</html>
